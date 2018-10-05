@@ -12,7 +12,7 @@ public class ChickNuggNumCalc {
     int jX = AM_I_NUM_NUGG/NUM_NUGG2;
     int kX = AM_I_NUM_NUGG/NUM_NUGG1;
     nonRecursive(iX, jX, kX);
-    System.out.println(cheapRecursion(1, kX+1, 0, jX+1, 0, iX+1));
+//    System.out.println(cheapRecursion(1, kX+1, 0, jX+1, 0, iX+1));
   }
 
   static boolean nonRecursive(int iX, int jX, int kX){
