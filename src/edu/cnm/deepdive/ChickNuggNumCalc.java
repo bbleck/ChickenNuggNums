@@ -3,16 +3,16 @@ package edu.cnm.deepdive;
 public class ChickNuggNumCalc {
 
   public static final int NUM_NUGG1 = 6;
-  public static final int NUM_NUGG2 = 9;
+  public static final int NUM_NUGG2 = 14;
   public static final int NUM_NUGG3 = 20;
-  public static final int AM_I_NUM_NUGG = 43;
+  public static final int AM_I_NUM_NUGG = 75;
 
   public static void main(String[] args) {
     int iX = AM_I_NUM_NUGG/NUM_NUGG3;
     int jX = AM_I_NUM_NUGG/NUM_NUGG2;
     int kX = AM_I_NUM_NUGG/NUM_NUGG1;
     nonRecursive(iX, jX, kX);
-//    System.out.println(cheapRecursion(1, kX+1, 0, jX+1, 0, iX+1));
+    System.out.println(cheapRecursion(1, kX+1, 0, jX+1, 0, iX+1));
   }
 
   static boolean nonRecursive(int iX, int jX, int kX){
@@ -39,9 +39,7 @@ public class ChickNuggNumCalc {
     if(AM_I_NUM_NUGG==(startingI*NUM_NUGG1 + startingJ*NUM_NUGG2 + startingK*NUM_NUGG3)){
       return true;
     }
-    if(startingI ==0 && startingJ ==0 && startingK==0){
-      return false;
-    }
+
     if(startingI == highestI){
       startingI = 0;
       startingJ++;
@@ -54,8 +52,12 @@ public class ChickNuggNumCalc {
       startingK = 0;
     }
 
-    cheapRecursion(startingI, highestI, startingJ, highestJ, startingK, highestK);
-    return false;
+    if(startingI ==0 && startingJ ==0 && startingK==0){
+      return false;
+    }
+
+
+    return cheapRecursion(startingI+1, highestI, startingJ, highestJ, startingK, highestK);
   }
 
 }
